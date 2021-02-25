@@ -1,31 +1,37 @@
 package com.cognixia.jump.library.controller;
 
 import java.io.IOException;
+
+import com.cognixia.jump.library.model.Patron;
+
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class PatronSignup
- */
 public class PatronSignup extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+//	private PatronDAO db;
 
     @Override
     public void init() throws ServletException {
-    	super.init();
-    	//instantiate daoclass object
+//    	this.db = new PatronDAOClass();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//this is what's called when the webpage is loaded. :o
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//this is what's called when you send data
-		doGet(request, response);
+		String firstname = request.getParameter("first_name");
+		String lastname = request.getParameter("last_name");
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		boolean accountFrozen = true;
+		
+		Patron patron = new Patron(0, firstname, lastname, username, password, accountFrozen);
+		
+//		db.createPatron(patron);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/");
+		dispatcher.forward(request, response);
 	}
 
 }
