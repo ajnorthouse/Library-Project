@@ -16,7 +16,6 @@ public class LibrarianLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private LibrarianDAO db;
 	private Librarian librarian;
-	private int result;
 	
 
     @Override
@@ -40,26 +39,24 @@ public class LibrarianLogin extends HttpServlet {
 		librarian.setUsername(username);
 		librarian.setPassword(password);
 		
-		//send to class that helps check login info.
-		result = LoginHelper.checkLogin(librarian, db);
-		
-		//update jsp with feedback OR send to new page.
+		//uses helper class to check login
+		int result = LoginHelper.checkLogin(librarian, db);
 		switch (result){
 		
-		//bad password
+		//bad password result
 		case -1:
 			//code to update jsp
 			request.setAttribute("error", "Bad password match, please try again.");
 			//redirect back to login page with new error attribute
 			break;
 			
-		//bad username
+		//bad username result
 		case 0:
 			request.setAttribute("error", "No matching username in database, please try again.");
 			//redirect back to login page with new error attribute
 			break;
 		
-		//successful login
+		//successful login result
 		default:
 			request.setAttribute("librarian_id", result);
 			//redirect to new page with librarian_id attribute acting as validation token
