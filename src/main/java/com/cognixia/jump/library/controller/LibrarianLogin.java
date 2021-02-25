@@ -1,38 +1,41 @@
 package com.cognixia.jump.library.controller;
 
 import java.io.IOException;
+
+import com.cognixia.jump.library.dao.LibrarianDAO;
+import com.cognixia.jump.library.dao.LibrarianDAOClass;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class LibrarianLogin
- */
 public class LibrarianLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private LibrarianDAO db;
+	
 
-    /**
-     * Default constructor. 
-     */
-    public LibrarianLogin() {
-        // TODO Auto-generated constructor stub
+    @Override
+    public void init() throws ServletException {
+    	this.db = new LibrarianDAOClass();
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//I don't believe there should be anything here.
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		//collect info from jsp
+		
+		
+		//create temporary object.
+		
+		
+		//send to class that helps check login info.
+		
+		
+		//update jsp with feedback OR send to new page.
+		
 	}
 
 }

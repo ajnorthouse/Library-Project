@@ -18,7 +18,7 @@ public class PatronLogin extends HttpServlet {
 
 	@Override
 	public void init() throws ServletException {
-		db = new PatronDAOClass();
+		this.db = new PatronDAOClass();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
