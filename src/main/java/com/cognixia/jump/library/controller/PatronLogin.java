@@ -1,38 +1,68 @@
 package com.cognixia.jump.library.controller;
 
 import java.io.IOException;
+
+import com.cognixia.jump.library.dao.PatronDAO;
+import com.cognixia.jump.library.dao.PatronDAOClass;
+import com.cognixia.jump.library.helper.LoginHelper;
+import com.cognixia.jump.library.model.Patron;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class PatronLogin
- */
+
 public class PatronLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private PatronDAO db;
+	private Patron patron;
 
-    /**
-     * Default constructor. 
-     */
-    public PatronLogin() {
-        // TODO Auto-generated constructor stub
+
+	@Override
+	public void init() throws ServletException {
+		this.db = new PatronDAOClass();
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//I don't believe there should be anything here.
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		//collect info from jsp
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		
+		//create temporary object.
+		if (patron == null) {
+			patron = new Patron();
+		}
+		patron.setUsername(username);
+		patron.setPassword(password);
+		
+		//uses helper class to check login
+		int result = LoginHelper.checkLogin(patron, db);
+		switch (result){
+		
+		//bad password result
+		case -1:
+			//code to update jsp
+			request.setAttribute("error", "Bad password match, please try again.");
+			//redirect back to login page with new error attribute
+			break;
+			
+		//bad username result
+		case 0:
+			request.setAttribute("error", "No matching username in database, please try again.");
+			//redirect back to login page with new error attribute
+			break;
+		
+		//successful login result
+		default:
+			request.setAttribute("patron_id", result);
+			//redirect to new page with librarian_id attribute acting as validation token
+			break;
+		}
 	}
 
 }
