@@ -4,8 +4,7 @@ import java.util.List;
 
 import com.cognixia.jump.library.model.Librarian;
 
-public interface LibrarianDAO 
-{
+public interface LibrarianDAO {
 	int addLibrarian(Librarian p);
 	
 	List<Librarian> getAllLibrarians();

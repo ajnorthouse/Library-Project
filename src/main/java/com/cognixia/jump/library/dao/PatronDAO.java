@@ -4,8 +4,7 @@ import java.util.List;
 
 import com.cognixia.jump.library.model.Patron;
 
-public interface PatronDAO 
-{
+public interface PatronDAO {
 	int addPatron(Patron p);
 	
 	List<Patron> getAllPatrons();
