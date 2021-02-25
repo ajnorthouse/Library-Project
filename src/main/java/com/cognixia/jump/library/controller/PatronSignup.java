@@ -1,4 +1,4 @@
-package com.cognixia.jump.library.servlet;
+package com.cognixia.jump.library.controller;
 
 import java.io.IOException;
 import jakarta.servlet.ServletException;
@@ -15,7 +15,7 @@ public class PatronSignup extends HttpServlet {
     @Override
     public void init() throws ServletException {
     	super.init();
-    	
+    	//instantiate daoclass object
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
