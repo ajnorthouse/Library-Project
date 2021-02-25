@@ -10,11 +10,11 @@ public class BookDAOClass implements BookDAO {
 
 	private Connection conn = ConnectionManager.getConnection();
 	
-	private final String ADD = "INSERT INTO book(isbn,title,descr,rented,added_to_library) values (?,?,?,?,?)";
-	private final String SELECT_ALL = "SELECT * FROM book";
-	private final String SELECT_BY_ID = "SELECT * FROM book WHERE id=?";
-	private final String UPDATE = "UPDATE book set title=?, descr=?, rented=?, added_to_library=? WHERE isbn=?";
-	private final String DELETE = "DELETE FROM book WHERE id=?";
+	private static final String ADD = "INSERT INTO book(isbn,title,descr,rented,added_to_library) values (?,?,?,?,?)";
+	private static final String SELECT_ALL = "SELECT * FROM book";
+	private static final String SELECT_BY_ID = "SELECT * FROM book WHERE isbn=?";
+	private static final String UPDATE = "UPDATE book set title=?, descr=?, rented=?, added_to_library=? WHERE isbn=?";
+	private static final String DELETE = "DELETE FROM book WHERE isbn=?";
 	
 	@Override
 	public int addBook(Book p) {
