@@ -3,6 +3,7 @@ package com.cognixia.jump.library.controller;
 import java.io.IOException;
 import java.util.List;
 
+
 import com.cognixia.jump.library.dao.LibrarianDAO;
 import com.cognixia.jump.library.dao.LibrarianDAOClass;
 import com.cognixia.jump.library.dao.PatronDAOClass;
@@ -14,6 +15,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.RequestDispatcher;
 
 public class LibrarianLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -44,27 +46,30 @@ public class LibrarianLogin extends HttpServlet {
 		
 		//uses helper class to check login
 		int result = LoginHelper.checkLogin(librarian, db);
-		switch (result){
 		
+		//create dispatcher for use in the switch case statement
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/");
+		
+		switch (result){
 		//bad password result
 		case -1:
 			//code to update jsp
 			request.setAttribute("error", "Bad password match, please try again.");
+			dispatcher.forward(request, response);
 			//redirect back to login page with new error attribute
 			break;
 			
 		//bad username result
 		case 0:
 			request.setAttribute("error", "No matching username in database, please try again.");
+			dispatcher.forward(request, response);
 			//redirect back to login page with new error attribute
 			break;
 		
 		//successful login result
 		default:
 			request.setAttribute("librarian_id", result);
-			request.setAttribute("username", username);
-			List<Patron> patrons = new PatronDAOClass().getAllPatrons();
-			request.setAttribute("patrons", patrons);
+			dispatcher.forward(request, response);
 			//redirect to new page with librarian_id attribute acting as validation token
 			break;
 		}
