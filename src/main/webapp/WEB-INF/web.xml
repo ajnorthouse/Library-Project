@@ -10,8 +10,28 @@
   	<description></description>
   	<servlet-class>com.cognixia.jump.library.servlet.PatronSignup</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>LibrarianUpdate</servlet-name>
+  	<display-name>LibrarianUpdate</display-name>
+  	<description></description>
+  	<servlet-class>com.cognixia.jump.library.controller.LibrarianUpdate</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LibrarianApprovePatrons</servlet-name>
+  	<display-name>LibrarianApprovePatrons</display-name>
+  	<description></description>
+  	<servlet-class>com.cognixia.jump.library.controller.LibrarianApprovePatrons</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>PatronSignup</servlet-name>
   	<url-pattern>/PatronSignup</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LibrarianUpdate</servlet-name>
+  	<url-pattern>/LibrarianUpdate</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LibrarianApprovePatrons</servlet-name>
+  	<url-pattern>/LibrarianApprovePatrons</url-pattern>
   </servlet-mapping>
 </web-app>
