@@ -17,7 +17,7 @@ private Connection conn = ConnectionManager.getConnection();
 	private static final String DELETE = "DELETE FROM librarian WHERE librarian_id=?";
 	
 	@Override
-	public int addLibrarian(Librarian p) {
+	public int addLibrarian(Librarian l) {
 		return 0;
 	}
 
@@ -32,7 +32,7 @@ private Connection conn = ConnectionManager.getConnection();
 	}
 
 	@Override
-	public boolean updateLibrarian(Librarian p) {
+	public boolean updateLibrarian(Librarian l) {
 		return false;
 	}
 

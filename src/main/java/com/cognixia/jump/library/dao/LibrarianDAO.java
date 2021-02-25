@@ -5,12 +5,12 @@ import java.util.List;
 import com.cognixia.jump.library.model.Librarian;
 
 public interface LibrarianDAO {
-	int addLibrarian(Librarian p);
+	int addLibrarian(Librarian l);
 	
 	List<Librarian> getAllLibrarians();
 	Librarian getLibrarianByID(int id);
 	
-	boolean updateLibrarian(Librarian p);
+	boolean updateLibrarian(Librarian l);
 	
 	boolean deleteLibrarian(int id);
 }

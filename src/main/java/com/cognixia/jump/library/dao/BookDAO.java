@@ -5,12 +5,12 @@ import java.util.List;
 import com.cognixia.jump.library.model.Book;
 
 public interface BookDAO  {
-	int addBook(Book p);
+	String addBook(Book b);
 	
 	List<Book> getAllBooks();
-	Book getBookByID(int id);
+	Book getBookByID(String id);
 	
-	boolean updateBook(Book p);
+	boolean updateBook(Book b);
 	
-	boolean deleteBook(int id);
+	boolean deleteBook(String id);
 }
