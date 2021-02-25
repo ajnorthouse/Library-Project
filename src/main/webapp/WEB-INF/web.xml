@@ -4,34 +4,80 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-  	<servlet-name>PatronSignup</servlet-name>
-  	<display-name>PatronSignup</display-name>
-  	<description></description>
-  	<servlet-class>com.cognixia.jump.library.servlet.PatronSignup</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>LibrarianUpdate</servlet-name>
-  	<display-name>LibrarianUpdate</display-name>
-  	<description></description>
-  	<servlet-class>com.cognixia.jump.library.controller.LibrarianUpdate</servlet-class>
-  </servlet>
+  <!-- === Servlet Declarations === -->
+  <!-- Librarian Approve Patrons -->
   <servlet>
   	<servlet-name>LibrarianApprovePatrons</servlet-name>
   	<display-name>LibrarianApprovePatrons</display-name>
   	<description></description>
   	<servlet-class>com.cognixia.jump.library.controller.LibrarianApprovePatrons</servlet-class>
   </servlet>
-  <servlet-mapping>
+  <!-- Librarian Login -->
+  <servlet>
+  	<servlet-name>LibrarianLogin</servlet-name>
+  	<display-name>LibrarianLogin</display-name>
+  	<description></description>
+  	<servlet-class>com.cognixia.jump.library.controller.LibrarianLogin</servlet-class>
+  </servlet>
+  <!-- Librarian Update -->
+  <servlet>
+  	<servlet-name>LibrarianUpdate</servlet-name>
+  	<display-name>LibrarianUpdate</display-name>
+  	<description></description>
+  	<servlet-class>com.cognixia.jump.library.controller.LibrarianUpdate</servlet-class>
+  </servlet>
+  <!-- Patron Signup -->
+  <servlet>
   	<servlet-name>PatronSignup</servlet-name>
-  	<url-pattern>/PatronSignup</url-pattern>
+  	<display-name>PatronSignup</display-name>
+  	<description></description>
+  	<servlet-class>com.cognixia.jump.library.servlet.PatronSignup</servlet-class>
+  </servlet>
+  <!-- Patron Login -->
+  <servlet>
+  	<servlet-name>PatronLogin</servlet-name>
+  	<display-name>PatronLogin</display-name>
+  	<description></description>
+  	<servlet-class>com.cognixia.jump.library.controller.PatronLogin</servlet-class>
+  </servlet>
+  <!-- Patron Update -->
+  <servlet>
+  	<servlet-name>PatronUpdate</servlet-name>
+  	<display-name>PatronUpdate</display-name>
+  	<description></description>
+  	<servlet-class>com.cognixia.jump.library.controller.PatronUpdate</servlet-class>
+  </servlet>
+
+
+  <!-- === Servlet Mappings === -->
+  <!-- Librarian Approve Patrons -->
+  <servlet-mapping>
+  	<servlet-name>LibrarianApprovePatrons</servlet-name>
+  	<url-pattern>/LibrarianApprovePatrons</url-pattern>
   </servlet-mapping>
+  <!-- Librarian Login -->
+  <servlet-mapping>
+  	<servlet-name>LibrarianLogin</servlet-name>
+  	<url-pattern>/LibrarianLogin</url-pattern>
+  </servlet-mapping>
+  <!-- Librarian Update -->
   <servlet-mapping>
   	<servlet-name>LibrarianUpdate</servlet-name>
   	<url-pattern>/LibrarianUpdate</url-pattern>
   </servlet-mapping>
+  <!-- Patron Signup -->
   <servlet-mapping>
-  	<servlet-name>LibrarianApprovePatrons</servlet-name>
-  	<url-pattern>/LibrarianApprovePatrons</url-pattern>
+  	<servlet-name>PatronSignup</servlet-name>
+  	<url-pattern>/PatronSignup</url-pattern>
+  </servlet-mapping>
+  <!-- Patron Login -->
+  <servlet-mapping>
+  	<servlet-name>PatronLogin</servlet-name>
+  	<url-pattern>/PatronLogin</url-pattern>
+  </servlet-mapping>
+  <!-- Patron Update -->
+  <servlet-mapping>
+  	<servlet-name>PatronUpdate</servlet-name>
+  	<url-pattern>/PatronUpdate</url-pattern>
   </servlet-mapping>
 </web-app>
