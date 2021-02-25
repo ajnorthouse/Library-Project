@@ -50,17 +50,19 @@ public class LibrarianLogin extends HttpServlet {
 		case -1:
 			//code to update jsp
 			request.setAttribute("error", "Bad password match, please try again.");
+			//redirect back to login page with new error attribute
 			break;
 			
 		//bad username
 		case 0:
-			//code to update jsp
 			request.setAttribute("error", "No matching username in database, please try again.");
+			//redirect back to login page with new error attribute
 			break;
 		
 		//successful login
 		default:
 			request.setAttribute("librarian_id", result);
+			//redirect to new page with librarian_id attribute acting as validation token
 			break;
 		}
 	}
