@@ -12,7 +12,7 @@ import com.cognixia.jump.library.model.Librarian;
 
 public class LibrarianDAOClass implements LibrarianDAO {
 	
-private Connection conn = ConnectionManager.getConnection();
+	private Connection conn = ConnectionManager.getConnection();
 	
 	private static final String ADD = "INSERT INTO librarian(username, password) values (?,?)";
 	private static final String SELECT_ALL = "SELECT * FROM librarian";
@@ -22,7 +22,7 @@ private Connection conn = ConnectionManager.getConnection();
 	
 	@Override
 	public int addLibrarian(Librarian l) {
-try(PreparedStatement pst = conn.prepareStatement(ADD)) {
+		try(PreparedStatement pst = conn.prepareStatement(ADD)) {
 			
 			pst.setString(1, l.getUsername());
 			pst.setString(2, l.getPassword());
@@ -46,7 +46,9 @@ try(PreparedStatement pst = conn.prepareStatement(ADD)) {
 			
 			while(rs.next())
 			{
-				librarians.add(new Librarian(rs.getInt("librarian_id"), rs.getString("username"), rs.getString("password")));
+				librarians.add(new Librarian(rs.getInt("librarian_id"), 
+											 rs.getString("username"),
+											 rs.getString("password")));
 			}
 			
 		} catch (SQLException e) {
@@ -64,7 +66,9 @@ try(PreparedStatement pst = conn.prepareStatement(ADD)) {
 			ResultSet rs = pst.executeQuery();
 			while(rs.next())
 			{
-				librarian = new Librarian(rs.getInt("librarian_id"), rs.getString("username"), rs.getString("password"));
+				librarian = new Librarian(rs.getInt("librarian_id"), 
+										  rs.getString("username"),
+										  rs.getString("password"));
 			}
 			
 		} catch (SQLException e) {

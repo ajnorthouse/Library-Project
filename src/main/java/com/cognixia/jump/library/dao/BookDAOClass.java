@@ -48,7 +48,11 @@ public class BookDAOClass implements BookDAO {
 			
 			while(rs.next())
 			{
-				books.add(new Book(rs.getString("isbn"), rs.getString("title"), rs.getString("descr"),rs.getBoolean("rented"), rs.getDate("added_to_library")));
+				books.add(new Book(rs.getString("isbn"),
+								   rs.getString("title"), 
+								   rs.getString("descr"),
+								   rs.getBoolean("rented"), 
+								   rs.getDate("added_to_library")));
 			}
 			
 		} catch (SQLException e) {
@@ -66,7 +70,11 @@ public class BookDAOClass implements BookDAO {
 			ResultSet rs = pst.executeQuery();
 			while(rs.next())
 			{
-				book  = new Book(rs.getString("isbn"), rs.getString("title"), rs.getString("descr"),rs.getBoolean("rented"), rs.getDate("added_to_library"));
+				book  = new Book(rs.getString("isbn"), 
+								 rs.getString("title"), 
+								 rs.getString("descr"),
+								 rs.getBoolean("rented"), 
+								 rs.getDate("added_to_library"));
 			}
 			
 		} catch (SQLException e) {
