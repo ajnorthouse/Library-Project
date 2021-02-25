@@ -1,38 +1,42 @@
 package com.cognixia.jump.library.controller;
 
 import java.io.IOException;
+
+import com.cognixia.jump.library.dao.PatronDAO;
+import com.cognixia.jump.library.dao.PatronDAOClass;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class PatronLogin
- */
+
 public class PatronLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private PatronDAO db;
 
-    /**
-     * Default constructor. 
-     */
-    public PatronLogin() {
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	@Override
+	public void init() throws ServletException {
+		db = new PatronDAOClass();
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//I don't believe there should be anything here.
+	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		//collect info from jsp
+		
+		
+		//create temporary object.
+		
+		
+		//send to class that helps check login info.
+		
+		
+		//update jsp with feedback OR send to new page.
+		
 	}
 
 }
