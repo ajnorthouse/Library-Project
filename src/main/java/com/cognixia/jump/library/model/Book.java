@@ -3,17 +3,17 @@ package com.cognixia.jump.library.model;
 import java.sql.Date;
 
 public class Book {
-	private char isbn;
+	private String isbn;
 	private String title;
 	private String descr;
 	private boolean rented;
 	private Date added_to_library;
 	
-	public char getIsbn() {
+	public String getIsbn() {
 		return isbn;
 	}
 
-	public void setIsbn(char isbn) {
+	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
 
@@ -50,7 +50,7 @@ public class Book {
 	}
 	
 	
-	public Book(char isbn, String title, String descr, boolean rented, Date added_to_library) {
+	public Book(String isbn, String title, String descr, boolean rented, Date added_to_library) {
 		super();
 		this.isbn = isbn;
 		this.title = title;
