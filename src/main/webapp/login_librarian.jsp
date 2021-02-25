@@ -12,6 +12,13 @@
 			<br><br>
 			
 			<input type="submit">
+			
+			<%String error = (String)request.getAttribute("error");
+				if (error != null) {
+					out.print("<br><br>");
+					out.print("<p class=\"error\">" + error + "</p>");
+				}
+			%>
 		</form>
 	</div>
 
