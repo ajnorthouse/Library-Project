@@ -68,6 +68,13 @@
   	<description></description>
   	<servlet-class>com.cognixia.jump.library.controller.BookServlet</servlet-class>
   </servlet>
+  <!-- Log Out -->
+  <servlet>
+  	<servlet-name>LogOut</servlet-name>
+  	<display-name>LogOut</display-name>
+  	<description></description>
+  	<servlet-class>com.cognixia.jump.library.controller.LogOut</servlet-class>
+  </servlet>
 
 
   <!-- === Servlet Mappings === -->
@@ -115,6 +122,11 @@
   <servlet-mapping>
   	<servlet-name>BookServlet</servlet-name>
   	<url-pattern>/BookServlet</url-pattern>
+  </servlet-mapping>
+  <!-- Log Out -->
+  <servlet-mapping>
+  	<servlet-name>LogOut</servlet-name>
+  	<url-pattern>/LogOut</url-pattern>
   </servlet-mapping>
 
   <!-- Set home page -->
