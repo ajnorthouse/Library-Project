@@ -52,18 +52,20 @@ public class PatronLogin extends HttpServlet {
 		//bad password result
 		case -1:
 			request.setAttribute("error", "Bad password match, please try again.");
+			dispatcher = request.getRequestDispatcher("/login_patron.jsp");
 			dispatcher.forward(request, response);
 			break;
 			
 		//bad username result
 		case 0:
 			request.setAttribute("error", "No matching username in database, please try again.");
+			dispatcher = request.getRequestDispatcher("/login_patron.jsp");
 			dispatcher.forward(request, response);
 			break;
 		
 		//successful login result
 		default:
-			dispatcher = request.getRequestDispatcher("/");
+			dispatcher = request.getRequestDispatcher("/patron_dashboard.jsp");
 			HttpSession session = request.getSession();
 			session.setAttribute("patron_id", result);
 			dispatcher.forward(request, response);
