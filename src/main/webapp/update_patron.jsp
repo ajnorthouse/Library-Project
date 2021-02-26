@@ -8,7 +8,7 @@
 </head>
 <body>
   <h1>Update Profile</h1>
-  <h2>Welcome <%=request.getAttribute("first_name" + "last_name")%></h2>
+  <h2>Welcome <%=request.getAttribute("first_name")%> <%=request.getAttribute("last_name")%></h2>
 <form action="" method="post">
 	<table style="width: 50%">
 	  <tr>
