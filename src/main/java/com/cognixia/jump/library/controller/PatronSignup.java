@@ -33,7 +33,7 @@ public class PatronSignup extends HttpServlet {
 		
 		db.addPatron(patron);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/PatronLogin");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/login_patron.jsp");
 		dispatcher.forward(request, response);
 	}
 
