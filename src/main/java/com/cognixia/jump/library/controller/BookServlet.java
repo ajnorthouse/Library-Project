@@ -19,19 +19,12 @@ public class BookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private BookDAO db;
     
-    public BookServlet() {
-		super();
-	}
-    
     @Override
     public void init() throws ServletException {
-    	
     	db = new BookDAOClass();
-    	
     }
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		List<Book> books = new ArrayList<>();
 		books = db.getAllBooks();
 		
@@ -39,6 +32,11 @@ public class BookServlet extends HttpServlet {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/list_books.jsp");
 		dispatcher.forward(request, response);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 	}
 
 
