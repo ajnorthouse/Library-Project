@@ -41,6 +41,7 @@ public class PatronUpdate extends HttpServlet {
 		    request.setAttribute("last_name", patron.getLast_name());
 		    request.setAttribute("username", patron.getUsername());
 		    request.setAttribute("password", patron.getPassword());
+		    request.setAttribute("account_frozen", patron.isAccount_frozen());
 		    RequestDispatcher dispatcher = request.getRequestDispatcher("/update_patron.jsp");
 		    dispatcher.forward(request, response);
 		}
@@ -49,16 +50,17 @@ public class PatronUpdate extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//collect update data
-		//pull data base
-		
-			
+		String first_name = request.getParameter("first_name");
+		String last_name = request.getParameter("last_name");
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		boolean account_frozen = Boolean.valueOf(request.getParameter("account_frozen"));
+		int id = Integer.parseInt(request.getParameter("patron_id"));
+		patron = new Patron(id,first_name,last_name,username,password,account_frozen);
+		db.updatePatron(patron);
 		doGet(request, response);
 	}
 
 }
+
