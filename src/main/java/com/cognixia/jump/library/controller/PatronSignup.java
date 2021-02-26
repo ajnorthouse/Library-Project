@@ -2,6 +2,8 @@ package com.cognixia.jump.library.controller;
 
 import java.io.IOException;
 
+import com.cognixia.jump.library.dao.PatronDAO;
+import com.cognixia.jump.library.dao.PatronDAOClass;
 import com.cognixia.jump.library.model.Patron;
 
 import jakarta.servlet.RequestDispatcher;
@@ -12,11 +14,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class PatronSignup extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-//	private PatronDAO db;
+	private PatronDAO db;
 
     @Override
     public void init() throws ServletException {
-//    	this.db = new PatronDAOClass();
+    	this.db = new PatronDAOClass();
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,7 +30,7 @@ public class PatronSignup extends HttpServlet {
 		
 		Patron patron = new Patron(0, firstname, lastname, username, password, accountFrozen);
 		
-//		db.createPatron(patron);
+		db.addPatron(patron);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/");
 		dispatcher.forward(request, response);
