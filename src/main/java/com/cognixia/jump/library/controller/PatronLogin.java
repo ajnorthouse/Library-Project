@@ -11,6 +11,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.RequestDispatcher;
 
 
 public class PatronLogin extends HttpServlet {
@@ -42,25 +43,28 @@ public class PatronLogin extends HttpServlet {
 		
 		//uses helper class to check login
 		int result = LoginHelper.checkLogin(patron, db);
-		switch (result){
 		
+		//create dispatcher for use in the switch case statement
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/login_patron.jsp");
+		
+		switch (result){
 		//bad password result
 		case -1:
-			//code to update jsp
 			request.setAttribute("error", "Bad password match, please try again.");
-			//redirect back to login page with new error attribute
+			dispatcher.forward(request, response);
 			break;
 			
 		//bad username result
 		case 0:
 			request.setAttribute("error", "No matching username in database, please try again.");
-			//redirect back to login page with new error attribute
+			dispatcher.forward(request, response);
 			break;
 		
 		//successful login result
 		default:
+			dispatcher = request.getRequestDispatcher("/");
 			request.setAttribute("patron_id", result);
-			//redirect to new page with librarian_id attribute acting as validation token
+			dispatcher.forward(request, response);
 			break;
 		}
 	}

@@ -1,15 +1,11 @@
 package com.cognixia.jump.library.controller;
 
 import java.io.IOException;
-import java.util.List;
-
 
 import com.cognixia.jump.library.dao.LibrarianDAO;
 import com.cognixia.jump.library.dao.LibrarianDAOClass;
-import com.cognixia.jump.library.dao.PatronDAOClass;
 import com.cognixia.jump.library.helper.LoginHelper;
 import com.cognixia.jump.library.model.Librarian;
-import com.cognixia.jump.library.model.Patron;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -48,31 +44,26 @@ public class LibrarianLogin extends HttpServlet {
 		int result = LoginHelper.checkLogin(librarian, db);
 		
 		//create dispatcher for use in the switch case statement
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/login_librarian.jsp");
 		
 		switch (result){
 		//bad password result
 		case -1:
-			//code to update jsp
 			request.setAttribute("error", "Bad password match, please try again.");
 			dispatcher.forward(request, response);
-			//redirect back to login page with new error attribute
 			break;
 			
 		//bad username result
 		case 0:
-			System.out.println("got here - invalid login");
 			request.setAttribute("error", "No matching username in database, please try again.");
 			dispatcher.forward(request, response);
-			//redirect back to login page with new error attribute
 			break;
 		
 		//successful login result
 		default:
-			System.out.println("got here - valid login");
+			dispatcher = request.getRequestDispatcher("/");
 			request.setAttribute("librarian_id", result);
 			dispatcher.forward(request, response);
-			//redirect to new page with librarian_id attribute acting as validation token
 			break;
 		}
 	}
