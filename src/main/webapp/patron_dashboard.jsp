@@ -7,6 +7,7 @@
 <title>Patron Dash board</title>
 </head>
 <body>
+	<a href="<%= request.getContextPath()%>/update_patron.jsp">Update Personal Information</a>
 	<div align="center">
         <table border="1" cellpadding="5">
             <caption><h2>Book Catalog</h2></caption>
@@ -44,6 +45,6 @@
             </c:forEach>
         </table>
     </div>
-	<a href="<%= request.getContextPath()%>/update_patronjsp">Update Personal Information</a>
+
 </body>
 </html>
