@@ -73,8 +73,8 @@ public class LibrarianLogin extends HttpServlet {
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("librarian_id", result);
-			request.setAttribute("patrons", patrons);
-			request.setAttribute("username", username);
+			session.setAttribute("patrons", patrons);
+			session.setAttribute("username", username);
 
 			dispatcher = request.getRequestDispatcher("/librarian.jsp");
 			dispatcher.forward(request, response);

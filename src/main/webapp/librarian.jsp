@@ -5,10 +5,10 @@
 <%@ include file="header/librarian.jsp" %>
 
 
-<% List<Patron> patrons = (List<Patron>) request.getAttribute("patrons");%>
+<% List<Patron> patrons = (List<Patron>) session.getAttribute("patrons");%>
 
 <body>
-	<h2>Welcome <%=request.getAttribute("username") %></h2>
+	<h2>Welcome <%=session.getAttribute("username") %></h2>
 	<h3>Patron List</h3>
 	<table border="1">
 		<tr>
@@ -64,7 +64,7 @@
 			}%>
 	</table>
 	
-	<a href='update_librarian.jsp'><button>Update account</button></a>
+	<a href='LibrarianUpdate'><button>Update account</button></a>
 	
 </body>
 

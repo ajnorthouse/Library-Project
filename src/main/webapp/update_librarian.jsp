@@ -13,11 +13,11 @@
 	  
 		<tr>
 		<td>UserName</td>
-		<td><input type="text" name="username" placeholder="<%=request.getAttribute("username")%>"/></td>
+		<td><input type="text" name="username" value="<%=request.getAttribute("username")%>"/></td>
 	  </tr>
 	  <tr>
 		<td>Password</td>
-		<td><input type="password" name="password" placeholder="<%=request.getAttribute("password")%>"/></td>
+		<td><input type="password" name="password" value="<%=request.getAttribute("password")%>"/></td>
 	  </tr>
 	</table>
 		<input type="submit" value="Submit" />
