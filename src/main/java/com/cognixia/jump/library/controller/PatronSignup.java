@@ -21,6 +21,7 @@ public class PatronSignup extends HttpServlet {
     	this.db = new PatronDAOClass();
     }
 
+    @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String firstname = request.getParameter("first_name");
 		String lastname = request.getParameter("last_name");
@@ -32,7 +33,7 @@ public class PatronSignup extends HttpServlet {
 		
 		db.addPatron(patron);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/PatronLogin");
 		dispatcher.forward(request, response);
 	}
 
