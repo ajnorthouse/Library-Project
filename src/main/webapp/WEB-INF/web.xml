@@ -47,17 +47,26 @@
   	<description></description>
   	<servlet-class>com.cognixia.jump.library.controller.PatronUpdate</servlet-class>
   </servlet>
+  <!-- Patron Checkout Book -->
   <servlet>
   	<servlet-name>PatronCheckoutBook</servlet-name>
   	<display-name>PatronCheckoutBook</display-name>
   	<description></description>
   	<servlet-class>com.cognixia.jump.library.controller.PatronCheckoutBook</servlet-class>
   </servlet>
+  <!-- Patron Return Book -->
   <servlet>
   	<servlet-name>PatronReturnBook</servlet-name>
   	<display-name>PatronReturnBook</display-name>
   	<description></description>
   	<servlet-class>com.cognixia.jump.library.controller.PatronReturnBook</servlet-class>
+  </servlet>
+  <!-- View All Books -->
+  <servlet>
+  	<servlet-name>BookServlet</servlet-name>
+  	<display-name>BookServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.cognixia.jump.library.controller.BookServlet</servlet-class>
   </servlet>
 
 
@@ -92,12 +101,19 @@
   	<servlet-name>PatronUpdate</servlet-name>
   	<url-pattern>/PatronUpdate</url-pattern>
   </servlet-mapping>
+  <!-- Patron Checkout Book -->
   <servlet-mapping>
   	<servlet-name>PatronCheckoutBook</servlet-name>
   	<url-pattern>/PatronCheckoutBook</url-pattern>
   </servlet-mapping>
+  <!-- Patron Return Book -->
   <servlet-mapping>
   	<servlet-name>PatronReturnBook</servlet-name>
   	<url-pattern>/PatronReturnBook</url-pattern>
+  </servlet-mapping>
+  <!-- View All Books -->
+  <servlet-mapping>
+  	<servlet-name>BookServlet</servlet-name>
+  	<url-pattern>/BookServlet</url-pattern>
   </servlet-mapping>
 </web-app>
