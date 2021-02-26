@@ -36,6 +36,7 @@ public class PatronUpdate extends HttpServlet {
 		if(session.getAttribute("patron_id")!=null){
 		    int id = ((int)session.getAttribute("patron_id"));
 		    patron = db.getPatronByID(id);
+		    request.setAttribute("patron_id", patron.getPatron_id());
 		    request.setAttribute("first_name", patron.getFirst_name());
 		    request.setAttribute("last_name", patron.getLast_name());
 		    request.setAttribute("username", patron.getUsername());
