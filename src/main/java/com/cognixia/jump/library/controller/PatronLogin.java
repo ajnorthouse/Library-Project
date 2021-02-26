@@ -26,10 +26,6 @@ public class PatronLogin extends HttpServlet {
 		this.db = new PatronDAOClass();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//I don't believe there should be anything here.
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//collect info from jsp
 		String username = request.getParameter("username");
@@ -46,7 +42,7 @@ public class PatronLogin extends HttpServlet {
 		int result = LoginHelper.checkLogin(patron, db);
 		
 		//create dispatcher for use in the switch case statement
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/login_patron.jsp");
+		RequestDispatcher dispatcher = null;
 		
 		switch (result){
 		//bad password result
@@ -65,7 +61,7 @@ public class PatronLogin extends HttpServlet {
 		
 		//successful login result
 		default:
-			dispatcher = request.getRequestDispatcher("/patron_dashboard.jsp");
+			dispatcher = request.getRequestDispatcher("/BookServlet");
 			HttpSession session = request.getSession();
 			session.setAttribute("patron_id", result);
 			dispatcher.forward(request, response);
