@@ -8,7 +8,7 @@
   </head>
   <body>
     <nav>
-		<a href="<%= request.getContextPath()%>/LibrarianApprovesPatron">Manage Patrons</a>
+		<a href="<%= request.getContextPath()%>/librarian.jsp">Manage Patrons</a>
 		<a href="<%= request.getContextPath()%>/LibrarianUpdate">Update Info</a>
 		<a href="<%= request.getContextPath()%>/LogOut">Log Out</a>
 	</nav>

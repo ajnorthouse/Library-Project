@@ -25,7 +25,6 @@
             <%}
             	}%>
         </table>
-        <a href="index.jsp">Back to home</a>
     </div>
 
 <%@ include file="footer.jsp" %>

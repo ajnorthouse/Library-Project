@@ -61,6 +61,5 @@ public class PatronUpdate extends HttpServlet {
 		db.updatePatron(patron);
 		doGet(request, response);
 	}
-
 }
 

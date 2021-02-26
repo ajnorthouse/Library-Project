@@ -42,9 +42,6 @@ public class LibrarianUpdate extends HttpServlet {
 		    RequestDispatcher dispatcher = request.getRequestDispatcher("/update_librarian.jsp");
 		    dispatcher.forward(request, response);
 		}
-		else{    
-			System.out.println("No ID");
-		}
 	}
 
     
@@ -57,10 +54,7 @@ public class LibrarianUpdate extends HttpServlet {
 		session.setAttribute("username", username);
 		
 		db.updateLibrarian(new Librarian(id,username,password)); 
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/librarian.jsp");
-		dispatcher.forward(request, response);
-		
-		
+		doGet(request, response);
 	}
 }
+

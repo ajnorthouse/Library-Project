@@ -5,10 +5,10 @@
 <%@ include file="header_librarian.jsp" %>
 
 
-<% List<Patron> patrons = (List<Patron>) request.getAttribute("patrons");%>
+<% List<Patron> patrons = (List<Patron>) session.getAttribute("patrons");%>
 
 
-	<h2>Welcome <%=request.getAttribute("username") %></h2>
+	<h2>Welcome <%=session.getAttribute("username")%></h2>
 	<h3>Patron List</h3>
 	<table border="1">
 		<tr>
@@ -26,10 +26,10 @@
 			<td><%=patron.getUsername() %></td>
 			<td><%=patron.getFirst_name() %></td>
 			<td><%=patron.getLast_name() %></td>
-			<td><%=patron.isAccount_frozen() %></td>
 			
 			<td><form method="POST" action='LibrarianApprovesPatron'>
-							<input type="submit" name="freeze" value="<%=patron.getPatron_id()%>">Freeze Patron</form></td>
+							<button name="freeze" value="<%=patron.getPatron_id()%>">Freeze Patron</button>
+							</form></td>
 			
 		</tr>
 		<%}
@@ -37,7 +37,7 @@
 			}%>
 	</table><br>
 	
-	<h3>Newly signed up Patron List</h3>
+	<h3>Frozen Patrons</h3>
 	<table border="1">
 		<tr>
 			<th>ID</th>
@@ -54,10 +54,11 @@
 							<td><%=patron.getUsername() %></td>
 							<td><%=patron.getFirst_name() %></td>
 							<td><%=patron.getLast_name() %></td>
-							<td><%=patron.isAccount_frozen() %></td>
 							
 							<td><form method="POST" action='LibrarianApprovesPatron'>
-							<input type="submit" name="freeze" value="<%=patron.getPatron_id()%>">Unfreeze Patron</form></td>
+							<button name="freeze" value="<%=patron.getPatron_id()%>">Unfreeze Patron</button>
+							</form>
+							</td>
 							
 							
 						</tr>
@@ -66,8 +67,6 @@
 	
 			}%>
 	</table>
-	
-	<a href='update_librarian.jsp'><button>Update account</button></a>
 
 <%@ include file="footer.jsp" %>
 </html>
