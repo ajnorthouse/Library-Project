@@ -44,6 +44,6 @@
             </c:forEach>
         </table>
     </div>
-	<a href="<%= request.getContextPath()%>/list_books.jsp">View all Books</a>
+	<a href="<%= request.getContextPath()%>/update_patronjsp">Update Personal Information</a>
 </body>
 </html>
