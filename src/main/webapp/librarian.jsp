@@ -2,13 +2,13 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ include file="header/librarian.jsp" %>
+<%@ include file="header.jsp" %>
 
 
-<% List<Patron> patrons = (List<Patron>) session.getAttribute("patrons");%>
+<% List<Patron> patrons = (List<Patron>) request.getAttribute("patrons");%>
 
 <body>
-	<h2>Welcome <%=session.getAttribute("username") %></h2>
+	<h2>Welcome <%=request.getAttribute("username") %></h2>
 	<h3>Patron List</h3>
 	<table border="1">
 		<tr>
@@ -64,9 +64,9 @@
 			}%>
 	</table>
 	
-	<a href='LibrarianUpdate'><button>Update account</button></a>
+	<a href='update_librarian.jsp'><button>Update account</button></a>
 	
 </body>
 
-<%@ include file="footer/index.jsp" %>
+<%@ include file="footer.jsp" %>
 </html>
