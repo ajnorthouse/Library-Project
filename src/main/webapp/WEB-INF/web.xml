@@ -31,7 +31,7 @@
   	<servlet-name>PatronSignup</servlet-name>
   	<display-name>PatronSignup</display-name>
   	<description></description>
-  	<servlet-class>com.cognixia.jump.library.servlet.PatronSignup</servlet-class>
+  	<servlet-class>com.cognixia.jump.library.controller.PatronSignup</servlet-class>
   </servlet>
   <!-- Patron Login -->
   <servlet>
