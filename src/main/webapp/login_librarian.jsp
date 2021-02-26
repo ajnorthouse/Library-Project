@@ -11,14 +11,15 @@
 			<input type="password" name="password" id="password">
 			<br><br>
 			
-			<input type="submit">
-			
 			<%String error = (String)request.getAttribute("error");
-				if (error != null) {
-					out.print("<br><br>");
-					out.print("<p class=\"error\">" + error + "</p>");
-				}
+				if (error != null) { %>
+					<p style="color:red"> <%= error %></p>
+				<% }
 			%>
+			
+			<input type="submit" value="Login">
+			
+			
 		</form>
 	</div>
 
