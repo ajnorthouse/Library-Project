@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Patron Register Form</h1>
-<form action="" method="post"></form>
+<form action="PatronSignup" method="post">
 	<table style="width: 50%">
 	  <tr>
 		<td>First Name</td>
@@ -27,6 +27,7 @@
 		<td><input type="password" name="password" /></td>
 	  </tr>
 	</table>
-		<input type="submit" value="Submit" /></form>
+		<input type="submit" value="Submit" />
+</form>
 </body>
 </html>
