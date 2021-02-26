@@ -37,7 +37,8 @@ public class LibrarianApprovesPatron extends HttpServlet {
 		String lastname = request.getParameter("last_name");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		boolean accountFrozen = false; //Librarian is unfreezing this patron when 'Unfreeze Patron' is hit
+		boolean accountFrozen = Boolean.parseBoolean(request.getParameter("freeze"));
+		//we have two different buttons to freeze and unfreeze but the name of both these parameters is the same - "freeze"
 		
 		
 		db.updatePatron(new Patron(0, firstname, lastname, username, password, accountFrozen)); 
