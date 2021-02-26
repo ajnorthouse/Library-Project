@@ -27,7 +27,6 @@ public class LibrarianUpdate extends HttpServlet {
     }
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		//ID must be passed to this servlet
 		int id = Integer.parseInt(request.getParameter("id"));
 		String username = request.getParameter("username");
