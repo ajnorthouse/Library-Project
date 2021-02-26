@@ -18,9 +18,13 @@
 			%>
 			
 			<input type="submit">
-			
-			
 		</form>
+		
+		<br><br><br>
+	
+		<a href="<%= request.getContextPath()%>/register.jsp" >
+			<button>Register New User</button>
+		</a>
 	</div>
 
 <%@ include file="footer/index.jsp" %>
