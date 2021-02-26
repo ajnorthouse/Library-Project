@@ -1,14 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Patron Dash board</title>
-</head>
-<body>
-	<a href="<%= request.getContextPath()%>/PatronUpdate">Update Personal Information</a>
-	<div align="center">
+<%@ include file="header_patron.jsp" %>
+
+  <div align="center">
         <table border="1" cellpadding="5">
             <caption><h2>Book Catalog</h2></caption>
             <tr>
@@ -46,5 +38,4 @@
         </table>
     </div>
 
-</body>
-</html>
+<%@ include file="footer.jsp" %>

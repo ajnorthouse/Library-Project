@@ -1,12 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Registration Form</title>
-</head>
-<body>
+<%@ include file="header.jsp" %>
+
 <h1>Patron Register Form</h1>
 <form action="PatronSignup" method="post">
 	<table style="width: 50%">
@@ -29,5 +22,5 @@
 	</table>
 		<input type="submit" value="Submit" />
 </form>
-</body>
-</html>
+
+<%@ include file="footer.jsp" %>

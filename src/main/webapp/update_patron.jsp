@@ -1,12 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Update Profile</title>
-</head>
-<body>
+<%@ include file="header_patron.jsp" %>
+
   <h1>Update Profile</h1>
   <h2>Welcome <%=request.getAttribute("first_name")%> <%=request.getAttribute("last_name")%></h2>
 <form action="" method="post">
@@ -33,5 +26,5 @@
 	</table>
 		<input type="submit" value="Submit" />
 </form>
-</body>
-</html>
+
+<%@ include file="footer.jsp" %>

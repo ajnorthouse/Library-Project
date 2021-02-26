@@ -1,12 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Librarian Profile</title><br>
-	<h4>Update Profile</h4><br>
-</head>
+<%@ include file="header_librarian.jsp" %>
+
 <body>
 	<form method="POST">
 		<table style="width: 50%">
@@ -22,5 +15,5 @@
 	</table>
 		<input type="submit" value="Submit" />
 	</form>
-</body>
-</html>
+
+<%@ include file="footer.jsp" %>

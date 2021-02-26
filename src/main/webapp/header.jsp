@@ -8,15 +8,7 @@
   </head>
   <body>
     <nav> 
-		<a href="<%= request.getContextPath()%>">Home</a> 
-		<a href="BookServlet">View all Books</a>
-		<a href="<%= request.getContextPath()%>/return.jsp">Return a Book</a> 
-		<a href="<%= request.getContextPath()%>/history.jsp">Borrowing History</a> 
-		<a href="<%= request.getContextPath()%>/login_patron.jsp"">Patron Login</a>  
-		<a href="<%= request.getContextPath()%>/login_librarian.jsp">Librarian Login</a> 
-		<a href="<%= request.getContextPath()%>/register.jsp">Register</a> 
-		<form method="GET" action=SERVLET>
-			<input type="number" min="1" placeholder="isbn" name="id">
-			<input type="submit" value="Search Book"/>
-		</form>
+		<a href="<%= request.getContextPath()%>">Home</a>
+		<a href="<%= request.getContextPath()%>/login_patron.jsp"">Patron Login</a>
+		<a href="<%= request.getContextPath()%>/login_librarian.jsp">Librarian Login</a>
 	</nav>
