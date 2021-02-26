@@ -27,6 +27,9 @@
 			<td><%=patron.getFirst_name() %></td>
 			<td><%=patron.getLast_name() %></td>
 			<td><%=patron.isAccount_frozen() %></td>
+			
+			<a href='LibrarianApprovesPatron'><button name="freeze" value="true" placeholder="freeze">Freeze Patron</button></a>
+			
 		</tr>
 		<%}
 			}
@@ -52,12 +55,12 @@
 							<td><%=patron.getLast_name() %></td>
 							<td><%=patron.isAccount_frozen() %></td>
 							
-							<a href='LibrarianApprovesPatron'><button>Unfreeze Patron</button></a>
+							<a href='LibrarianApprovesPatron'><button name="freeze" value="false" placeholder="unfreeze">Unfreeze Patron</button></a>
 							
 						</tr>
 					<%}
 				 }
-		
+	
 			}%>
 	</table>
 	
