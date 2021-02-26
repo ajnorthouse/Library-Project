@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.cognixia.jump.library.model.Book"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -9,20 +12,24 @@
 <body>
   <div align="center">
         <table border="1" cellpadding="5">
+        	<%List<Book> books = (List<Book>) request.getAttribute("books");%>
             <caption><h2>Book Catalog</h2></caption>
             <tr>
                 <th>ISBN</th>
                 <th>TITLE</th>
                 <th>DESCRIPTION</th>
             </tr>
-            <c:forEach var="book" items="${listBooks.rows}">
+            <%if(books != null) {
+            	for(Book book:books) { %>
                 <tr>
-                    <td><c:out value="${book.isbn}" /></td>
-                    <td><c:out value="${book.title}" /></td>
-                    <td><c:out value="${book.description}" /></td>
+                    <td><%=book.getIsbn() %></td>
+                    <td><%=book.getTitle() %></td>
+                    <td><%=book.getDescr() %></td>
                 </tr>
-            </c:forEach>
+            <%}
+            	}%>
         </table>
+        <a href="index.jsp">Back to home</a>
     </div>
 </body>
 </html>

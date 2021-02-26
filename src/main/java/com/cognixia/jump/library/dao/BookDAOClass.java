@@ -41,7 +41,8 @@ public class BookDAOClass implements BookDAO {
 
 	@Override
 	public List<Book> getAllBooks() {
-		List<Book> books = new ArrayList<Book>();
+		
+		List<Book> books = new ArrayList<>();
 		
 		try(PreparedStatement pst = conn.prepareStatement(SELECT_ALL);
 			ResultSet rs = pst.executeQuery()) {
