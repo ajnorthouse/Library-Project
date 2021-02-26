@@ -23,4 +23,4 @@
 		</form>
 	</div>
 
-<%@ include file="footer.jsp" %>
+<%@ include file="footer/index.jsp" %>

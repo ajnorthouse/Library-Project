@@ -68,5 +68,5 @@
 	
 </body>
 
-<%@ include file="footer.jsp" %>
+<%@ include file="footer/index.jsp" %>
 </html>
