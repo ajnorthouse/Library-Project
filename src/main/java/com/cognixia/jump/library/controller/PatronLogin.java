@@ -11,6 +11,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.RequestDispatcher;
 
 
@@ -63,7 +64,8 @@ public class PatronLogin extends HttpServlet {
 		//successful login result
 		default:
 			dispatcher = request.getRequestDispatcher("/");
-			request.setAttribute("patron_id", result);
+			HttpSession session = request.getSession();
+			session.setAttribute("patron_id", result);
 			dispatcher.forward(request, response);
 			break;
 		}

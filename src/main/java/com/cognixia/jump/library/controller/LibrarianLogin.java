@@ -11,6 +11,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.RequestDispatcher;
 
 public class LibrarianLogin extends HttpServlet {
@@ -62,7 +63,8 @@ public class LibrarianLogin extends HttpServlet {
 		//successful login result
 		default:
 			dispatcher = request.getRequestDispatcher("/");
-			request.setAttribute("librarian_id", result);
+			HttpSession session = request.getSession();
+			session.setAttribute("librarian_id", result);
 			dispatcher.forward(request, response);
 			break;
 		}
