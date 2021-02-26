@@ -29,6 +29,7 @@
             <%}
             	}%>
         </table>
+        <a href="index.jsp">Back to home</a>
     </div>
 </body>
 </html>
