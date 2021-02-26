@@ -66,8 +66,10 @@ public class PatronDAOClass implements PatronDAO {
 	public Patron getPatronByID(int id) {
 		Patron patron = null;
 		
-		try(PreparedStatement pst = conn.prepareStatement(SELECT_BY_ID);
-			ResultSet rs = pst.executeQuery()) {
+		try(PreparedStatement pst = conn.prepareStatement(SELECT_BY_ID);) {
+			
+			pst.setInt(1, id);
+			ResultSet rs = pst.executeQuery();
 			
 			while(rs.next())
 			{
@@ -78,7 +80,7 @@ public class PatronDAOClass implements PatronDAO {
 									rs.getString("password"), 
 									rs.getBoolean("account_frozen"));
 			}
-			
+			rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
