@@ -116,4 +116,9 @@
   	<servlet-name>BookServlet</servlet-name>
   	<url-pattern>/BookServlet</url-pattern>
   </servlet-mapping>
+
+  <!-- Set home page -->
+  <welcome-file-list>
+   <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
 </web-app>
