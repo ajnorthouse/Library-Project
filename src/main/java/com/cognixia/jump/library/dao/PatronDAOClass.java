@@ -17,7 +17,7 @@ public class PatronDAOClass implements PatronDAO {
 	private static final String ADD = "INSERT INTO patron(first_name, last_name, username, password, account_frozen) values (?,?,?,?,?)";
 	private static final String SELECT_ALL = "SELECT * FROM patron";
 	private static final String SELECT_BY_ID = "SELECT * FROM patron WHERE patron_id=?";
-	private static final String UPDATE = "UPDATE book set first_name=?, last_name=?, username=?, password=?, account_frozen=? WHERE patron_id=?";
+	private static final String UPDATE = "UPDATE patron set first_name=?, last_name=?, username=?, password=?, account_frozen=? WHERE patron_id=?";
 	private static final String DELETE = "DELETE FROM patron WHERE patron_id=?";
 	
 	@Override

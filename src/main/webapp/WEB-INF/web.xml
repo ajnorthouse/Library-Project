@@ -7,10 +7,10 @@
   <!-- === Servlet Declarations === -->
   <!-- Librarian Approve Patrons -->
   <servlet>
-  	<servlet-name>LibrarianApprovesPatrons</servlet-name>
-  	<display-name>LibrarianApprovesPatrons</display-name>
+  	<servlet-name>LibrarianApprovesPatron</servlet-name>
+  	<display-name>LibrarianApprovesPatron</display-name>
   	<description></description>
-  	<servlet-class>com.cognixia.jump.library.controller.LibrarianApprovesPatrons</servlet-class>
+  	<servlet-class>com.cognixia.jump.library.controller.LibrarianApprovesPatron</servlet-class>
   </servlet>
   <!-- Librarian Login -->
   <servlet>
@@ -73,8 +73,8 @@
   <!-- === Servlet Mappings === -->
   <!-- Librarian Approve Patrons -->
   <servlet-mapping>
-  	<servlet-name>LibrarianApprovesPatrons</servlet-name>
-  	<url-pattern>/LibrarianApprovesPatrons</url-pattern>
+  	<servlet-name>LibrarianApprovesPatron</servlet-name>
+  	<url-pattern>/LibrarianApprovesPatron</url-pattern>
   </servlet-mapping>
   <!-- Librarian Login -->
   <servlet-mapping>
