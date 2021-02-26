@@ -3,13 +3,9 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Book Catalog</title>
-</head>
-<body>
+
+<%@ include file="header_patron.jsp" %>
+
   <div align="center">
         <table border="1" cellpadding="5">
         	<%List<Book> books = (List<Book>) request.getAttribute("books");%>
@@ -31,5 +27,5 @@
         </table>
         <a href="index.jsp">Back to home</a>
     </div>
-</body>
-</html>
+
+<%@ include file="footer.jsp" %>

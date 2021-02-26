@@ -2,12 +2,12 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ include file="header.jsp" %>
+<%@ include file="header_librarian.jsp" %>
 
 
 <% List<Patron> patrons = (List<Patron>) request.getAttribute("patrons");%>
 
-<body>
+
 	<h2>Welcome <%=request.getAttribute("username") %></h2>
 	<h3>Patron List</h3>
 	<table border="1">
@@ -65,8 +65,6 @@
 	</table>
 	
 	<a href='update_librarian.jsp'><button>Update account</button></a>
-	
-</body>
 
 <%@ include file="footer.jsp" %>
 </html>
