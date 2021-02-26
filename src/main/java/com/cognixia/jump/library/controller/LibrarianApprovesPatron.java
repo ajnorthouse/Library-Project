@@ -1,10 +1,14 @@
 package com.cognixia.jump.library.controller;
 
 import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import com.cognixia.jump.library.dao.LibrarianDAO;
 import com.cognixia.jump.library.dao.PatronDAOClass;
@@ -33,17 +37,40 @@ public class LibrarianApprovesPatron extends HttpServlet {
 	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String firstname = request.getParameter("first_name");
-		String lastname = request.getParameter("last_name");
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		boolean accountFrozen = Boolean.parseBoolean(request.getParameter("freeze"));
+		
+		
+		
+		System.out.println(request.getParameter("freeze"));
+		
+		int patron_id = Integer.parseInt(request.getParameter("freeze"));
+		
+//		String firstname = request.getParameter("first_name");
+//		String lastname = request.getParameter("last_name");
+//		String username = request.getParameter("username");
+//		String password = request.getParameter("password");
+		//boolean accountFrozen = Boolean.parseBoolean(request.getParameter("freeze"));
 		//we have two different buttons to freeze and unfreeze but the name of both these parameters is the same - "freeze"
 		
 		
-		db.updatePatron(new Patron(0, firstname, lastname, username, password, accountFrozen)); 
+		//db.updatePatron(new Patron(0, firstname, lastname, username, password, accountFrozen)); 
 		
-		javax.servlet.RequestDispatcher dispatcher = request.getRequestDispatcher("/");
+		List<Patron> patrons = new ArrayList<>();
+		
+		
+		Patron patron = db.getPatronByID(patron_id);
+		
+		patron.setAccount_frozen(!patron.isAccount_frozen());
+		
+		db.updatePatron(patron);
+		
+		patrons = db.getAllPatrons();
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("patrons", patrons);
+		
+		
+		
+		jakarta.servlet.RequestDispatcher dispatcher = request.getRequestDispatcher("/librarian.jsp");
 		dispatcher.forward(request, response);
 	}
 
