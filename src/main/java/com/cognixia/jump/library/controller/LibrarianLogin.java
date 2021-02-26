@@ -61,6 +61,7 @@ public class LibrarianLogin extends HttpServlet {
 			
 		//bad username result
 		case 0:
+			System.out.println("got here - invalid login");
 			request.setAttribute("error", "No matching username in database, please try again.");
 			dispatcher.forward(request, response);
 			//redirect back to login page with new error attribute
@@ -68,6 +69,7 @@ public class LibrarianLogin extends HttpServlet {
 		
 		//successful login result
 		default:
+			System.out.println("got here - valid login");
 			request.setAttribute("librarian_id", result);
 			dispatcher.forward(request, response);
 			//redirect to new page with librarian_id attribute acting as validation token

@@ -20,6 +20,7 @@
 		</tr>
 		<%if(patrons != null) {
 			for(Patron patron:patrons) {%>
+			<% if(patron.isAccount_frozen()==false) {%>
 		<tr>
 			<td><%=patron.getPatron_id() %></td>
 			<td><%=patron.getUsername() %></td>
@@ -28,11 +29,40 @@
 			<td><%=patron.isAccount_frozen() %></td>
 		</tr>
 		<%}
+			}
+			}%>
+	</table><br>
+	
+	<h3>Newly signed up Patron List</h3>
+	<table border="1">
+		<tr>
+			<th>ID</th>
+			<th>UserName</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Frozen</th>
+		</tr>
+		<%if(patrons != null) {
+				for(Patron patron:patrons) {%>
+					<% if(patron.isAccount_frozen()==true) {%>
+						<tr>
+							<td><%=patron.getPatron_id() %></td>
+							<td><%=patron.getUsername() %></td>
+							<td><%=patron.getFirst_name() %></td>
+							<td><%=patron.getLast_name() %></td>
+							<td><%=patron.isAccount_frozen() %></td>
+							
+							<a href='LibrarianApprovesPatron'><button>Unfreeze Patron</button></a>
+							
+						</tr>
+					<%}
+				 }
+		
 			}%>
 	</table>
 	
 	<a href='update_librarian.jsp'><button>Update account</button></a>
-	<a href='LibrarianApprovePatrons'><button>Freeze/Unfreeze Selected Patrons</button></a>
+	
 </body>
 
 <%@ include file="footer.jsp" %>

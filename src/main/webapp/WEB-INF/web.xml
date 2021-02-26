@@ -47,6 +47,18 @@
   	<description></description>
   	<servlet-class>com.cognixia.jump.library.controller.PatronUpdate</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>PatronCheckoutBook</servlet-name>
+  	<display-name>PatronCheckoutBook</display-name>
+  	<description></description>
+  	<servlet-class>com.cognixia.jump.library.controller.PatronCheckoutBook</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>PatronReturnBook</servlet-name>
+  	<display-name>PatronReturnBook</display-name>
+  	<description></description>
+  	<servlet-class>com.cognixia.jump.library.controller.PatronReturnBook</servlet-class>
+  </servlet>
 
 
   <!-- === Servlet Mappings === -->
@@ -79,5 +91,13 @@
   <servlet-mapping>
   	<servlet-name>PatronUpdate</servlet-name>
   	<url-pattern>/PatronUpdate</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PatronCheckoutBook</servlet-name>
+  	<url-pattern>/PatronCheckoutBook</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PatronReturnBook</servlet-name>
+  	<url-pattern>/PatronReturnBook</url-pattern>
   </servlet-mapping>
 </web-app>
