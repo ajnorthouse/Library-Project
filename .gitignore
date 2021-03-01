@@ -50,3 +50,4 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 MANIFEST.MF
 target/m2e-wtp/web-resources/META-INF
+/.classpath
